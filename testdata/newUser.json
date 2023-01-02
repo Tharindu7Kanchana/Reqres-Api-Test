@@ -1,0 +1,9 @@
+{
+  "email": "chris.jones@reqres.in",
+  "name": "Chris jones",
+  "city": "London",
+  "age": 34,
+  "job": "manager",
+  "avatar": "https://reqres.in/img/faces/5-image.jpg",
+  "password": "password"
+}

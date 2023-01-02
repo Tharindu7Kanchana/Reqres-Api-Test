@@ -1,0 +1,9 @@
+{
+  "email": "hello.world@reqres.in",
+  "name": "hello world",
+  "city": "London",
+  "age": 34,
+  "job": "Tiktoker",
+  "avatar": "https://reqres.in/img/faces/5-image.jpg",
+  "password": "password"
+}

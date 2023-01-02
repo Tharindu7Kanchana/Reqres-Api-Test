@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default Suite" guice-stage="DEVELOPMENT" verbose="0">
+    <listeners>
+        <listener class-name="org.inivos.utils.SuitListener"/>
+    </listeners>
+    <test name="Inivos-api-automation-framework(failed)">
+        <classes>
+            <class name="UserTestSuite"/>
+        </classes>
+    </test>
+</suite>
+
