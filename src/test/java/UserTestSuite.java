@@ -167,12 +167,13 @@ public class UserTestSuite extends BaseTest {
         ApiTestSupport.setHeaders(request, Auth.contentHeaders);
         Response response = ApiTestSupport.postRequest(request, "users", body);
 
-        String json = response.body().asPrettyString();
         //Set Test Context
         ApiTestSupport.setTestContext(context, "post", "users", response);
+        Assert.assertEquals(response.getStatusCode(),201);
+        ApiTestSupport.loggerAddNode(logger,"Status code is 201",Status.PASS,"Pass");
 
         ApiTestSupport.jsonSchemaValidator(response, "validators/userSchema.json");
-        user1 = (User1) ApiTestSupport.jsonStringToObject(json, new User1());
+        user1 = (User1) ApiTestSupport.jsonStringToObject(response.asString(), new User1());
         System.out.println(user1.getId());
     }
 
@@ -190,6 +191,8 @@ public class UserTestSuite extends BaseTest {
         Response response = ApiTestSupport.putRequest(request, "users/" + user1.getId(), body);
         //Set Test Context
         ApiTestSupport.setTestContext(context, "patch", "users/" + user1.getId(), response);
+        Assert.assertEquals(response.getStatusCode(),200);
+        ApiTestSupport.loggerAddNode(logger,"Status code is 200",Status.PASS,"Pass");
     }
 
     /**
@@ -207,6 +210,8 @@ public class UserTestSuite extends BaseTest {
 
         //Set Test Context
         ApiTestSupport.setTestContext(context, "patch", "users/" + user1.getId(), response);
+        Assert.assertEquals(response.getStatusCode(),200);
+        ApiTestSupport.loggerAddNode(logger,"Status code is 200",Status.PASS,"Pass");
     }
 
     /**
@@ -223,5 +228,7 @@ public class UserTestSuite extends BaseTest {
 
         //Set Test Context
         ApiTestSupport.setTestContext(context, "delete", "users/" + user1.getId(), response);
+        Assert.assertEquals(response.getStatusCode(),204);
+        ApiTestSupport.loggerAddNode(logger,"Status code is 204",Status.PASS,"Pass");
     }
 }
